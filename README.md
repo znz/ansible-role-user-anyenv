@@ -29,13 +29,13 @@ Normal usage:
     - hosts: all
       become: no
       roles:
-      - znz.user-dot-shell
+      - znz.user-anyenv
 
 ## Example requirements.yml
 
-    - src: https://github.com/znz/ansible-role-user-dot-shell
+    - src: https://github.com/znz/ansible-role-user-anyenv
       version: master
-      name: znz.user-dot-shell
+      name: znz.user-anyenv
 
 ## License
 
