@@ -1,5 +1,5 @@
 ---
-anyenv_home_dir: "/home/vagrant"
+anyenv_home_dir: "/home/{{ ansible_user_id }}"
 anyenv_plugins:
 - https://github.com/znz/anyenv-update
 - https://github.com/znz/anyenv-git
