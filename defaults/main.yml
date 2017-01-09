@@ -1,4 +1,14 @@
 ---
 anyenv_home_dir: "/home/vagrant"
+anyenv_plugins:
+- https://github.com/znz/anyenv-update
+- https://github.com/znz/anyenv-git
+
 git_update: no
 git_depth: 1
+
+rbenv_plugins:
+- https://github.com/rbenv/ruby-build
+- https://github.com/rbenv/rbenv-each
+- https://github.com/znz/rbenv-plug
+- https://github.com/amatsuda/gem-src

@@ -12,8 +12,10 @@
 ## Role Variables
 
 - `anyenv_home_dir`: path to user's home directory
+- `anyenv_plugins`: repositories of anyenv plugins
 - `git_update`: `update` option of [git module](http://docs.ansible.com/git_module.html)
 - `git_depth`: `depth` option of [git module](http://docs.ansible.com/git_module.html)
+- `rbenv_plugins`: repositories of rbenv plugins
 
 ## Dependencies
 

@@ -15,45 +15,23 @@
     dest: "{{ anyenv_home_dir }}/.bashrc"
     regexp: 'anyenv init'
     line: 'eval "$(anyenv init - --no-rehash)"'
-- name: "anyenv update"
+- name: "anyenv plugins"
   git:
-    repo: https://github.com/znz/anyenv-update
-    dest: "{{ anyenv_home_dir }}/.anyenv/plugins/anyenv-update"
+    repo: "{{ item }}"
+    dest: "{{ anyenv_home_dir }}/.anyenv/plugins/{{ item | basename }}"
     update: "{{ git_update }}"
     depth: "{{ git_depth }}"
-- name: "anyenv git"
-  git:
-    repo: https://github.com/znz/anyenv-git
-    dest: "{{ anyenv_home_dir }}/.anyenv/plugins/anyenv-git"
-    update: "{{ git_update }}"
-    depth: "{{ git_depth }}"
+  with_items: "{{ anyenv_plugins }}"
 - name: "rbenv"
   git:
     repo: https://github.com/rbenv/rbenv
     dest: "{{ anyenv_home_dir }}/.anyenv/envs/rbenv"
     update: "{{ git_update }}"
     depth: "{{ git_depth }}"
-- name: "rbenv ruby-build"
+- name: "rbenv plugins"
   git:
-    repo: https://github.com/rbenv/ruby-build
-    dest: "{{ anyenv_home_dir }}/.anyenv/envs/rbenv/plugins/ruby-build"
+    repo: "{{ item }}"
+    dest: "{{ anyenv_home_dir }}/.anyenv/envs/rbenv/plugins/{{ item | basename }}"
     update: "{{ git_update }}"
     depth: "{{ git_depth }}"
-- name: "rbenv rbenv-each"
-  git:
-    repo: https://github.com/rbenv/rbenv-each
-    dest: "{{ anyenv_home_dir }}/.anyenv/envs/rbenv/plugins/rbenv-each"
-    update: "{{ git_update }}"
-    depth: "{{ git_depth }}"
-- name: "rbenv rbenv-plug"
-  git:
-    repo: https://github.com/znz/rbenv-plug
-    dest: "{{ anyenv_home_dir }}/.anyenv/envs/rbenv/plugins/rbenv-plug"
-    update: "{{ git_update }}"
-    depth: "{{ git_depth }}"
-- name: "rbenv gem-src"
-  git:
-    repo: https://github.com/amatsuda/gem-src
-    dest: "{{ anyenv_home_dir }}/.anyenv/envs/rbenv/plugins/gem-src"
-    update: "{{ git_update }}"
-    depth: "{{ git_depth }}"
+  with_items: "{{ rbenv_plugins }}"
